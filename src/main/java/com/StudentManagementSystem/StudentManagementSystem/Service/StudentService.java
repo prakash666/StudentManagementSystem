@@ -77,4 +77,13 @@ public class StudentService {
              return studentEntities;
          }
     }
+
+    public StudentEntity putData(StudentEntity studentEntity) throws DefaultException{
+        Optional<StudentEntity> optionalStudentEntity = studentRepository.findById(studentEntity.getId());
+        if (optionalStudentEntity.isPresent()){
+            return studentRepository.save(studentEntity);
+        } else{
+            throw new DefaultException("Data cannot be updated");
+        }
+    }
 }

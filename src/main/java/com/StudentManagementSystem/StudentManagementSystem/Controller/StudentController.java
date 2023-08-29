@@ -56,6 +56,12 @@ public class StudentController {
     }
 
 
+    @PutMapping("/put")
+    public StudentEntity putData(@RequestBody StudentEntity studentEntity) throws DefaultException{
+        return studentService.putData(studentEntity);
+    }
+
+
 
 
 
